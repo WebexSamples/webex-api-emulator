@@ -2,7 +2,7 @@
 	"info": {
 		"name": "Cisco Spark Markdown Tests",
 		"_postman_id": "72196756-2129-4c42-9dbb-1c51853096c2",
-		"description": "This set of tests posts a series of messages with markdown to Spark and the Spark Emulator and compares the results.\n\nIt requires an enviornment that specifies:\n* API_URL -- THe URL of the live Spark API\n* spark_token -- A valid auth token for calling Spark\n* tester_id -- the person ID of the holder of spark_token\n* tester_display_name -- the display name of the holder of spark_token\n* tester_nickname -- the nickname of the holder of the spark_token\n* tester_email -- the mail of the holder of the spark_token\n* person2_id: -- the person ID of a second person that can be added to the spark room\n* person2_email - the spark email for the second person\n* person2_display_name - the second person's spark display name\n* person2_nickname -- the second person's nickname\n\n* EMULATOR_URL - The URL of the Spark Emulator being tested\n* emulator_token - The token of a user specified in the emulator's token.json file\n* emulator_display_name - The display name associated with that user in token.json\n* emulator_nickname - The nickname associated with that user in token.json\n* emulator_id - The person ID associated with that user in token.json\n* emulator_email - The email associated with that user in token.json\n* emulator_person2_id The person ID of a second user defined in the emulator's token.json file\n* emulator_person2_email: - The email associated with that user in token.json\n* emulator_person2_display_name - The display name associated with that user in token.json\n* emulator_person2_nickname - The nickname associated with that user in token.json\n",
+		"description": "This set of tests posts a series of messages with markdown to Spark and the Spark Emulator and compares the results.\n\nIt requires an enviornment that specifies:\n* API_URL -- THe URL of the live Spark API\n* webex_token -- A valid auth token for calling Spark\n* tester_id -- the person ID of the holder of webex_token\n* tester_display_name -- the display name of the holder of webex_token\n* tester_nickname -- the nickname of the holder of the webex_token\n* tester_email -- the mail of the holder of the webex_token\n* person2_id: -- the person ID of a second person that can be added to the spark room\n* person2_email - the spark email for the second person\n* person2_display_name - the second person's spark display name\n* person2_nickname -- the second person's nickname\n\n* EMULATOR_URL - The URL of the Spark Emulator being tested\n* emulator_token - The token of a user specified in the emulator's token.json file\n* emulator_display_name - The display name associated with that user in token.json\n* emulator_nickname - The nickname associated with that user in token.json\n* emulator_id - The person ID associated with that user in token.json\n* emulator_email - The email associated with that user in token.json\n* emulator_person2_id The person ID of a second user defined in the emulator's token.json file\n* emulator_person2_email: - The email associated with that user in token.json\n* emulator_person2_display_name - The display name associated with that user in token.json\n* emulator_person2_nickname - The nickname associated with that user in token.json\n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -107,7 +107,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{spark_token}}"
+						"value": "Bearer {{webex_token}}"
 					},
 					{
 						"key": "Content-Type",
@@ -227,7 +227,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{spark_token}}"
+						"value": "Bearer {{webex_token}}"
 					},
 					{
 						"key": "Content-Type",
@@ -331,7 +331,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{spark_token}}"
+						"value": "Bearer {{webex_token}}"
 					},
 					{
 						"key": "Content-Type",
@@ -437,7 +437,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{spark_token}}"
+						"value": "Bearer {{webex_token}}"
 					},
 					{
 						"key": "Content-Type",
@@ -544,7 +544,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{spark_token}}"
+						"value": "Bearer {{webex_token}}"
 					},
 					{
 						"key": "Content-Type",
@@ -650,7 +650,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{spark_token}}"
+						"value": "Bearer {{webex_token}}"
 					},
 					{
 						"key": "Content-Type",
@@ -750,7 +750,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{spark_token}}"
+						"value": "Bearer {{webex_token}}"
 					},
 					{
 						"key": "Content-Type",
@@ -846,7 +846,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{spark_token}}"
+						"value": "Bearer {{webex_token}}"
 					},
 					{
 						"key": "Content-Type",
@@ -956,7 +956,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{spark_token}}"
+						"value": "Bearer {{webex_token}}"
 					},
 					{
 						"key": "Content-Type",
@@ -1061,7 +1061,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{spark_token}}"
+						"value": "Bearer {{webex_token}}"
 					},
 					{
 						"key": "Content-Type",
@@ -1164,7 +1164,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{spark_token}}"
+						"value": "Bearer {{webex_token}}"
 					},
 					{
 						"key": "Content-Type",

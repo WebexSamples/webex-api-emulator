@@ -1,11 +1,11 @@
 {
   "name": "spark-emulator",
   "version": "0.1.1",
-  "description": "Emulator of Cisco Spark REST API",
+  "description": "Emulator of Webex Teams REST API",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "newman run test-cases/CiscoSparkMarkdownTests.postman_collection.json -e test-cases/spark_emulator_tests.postman_environment.json"
+    "test": "newman run test-cases/WebexApiMarkdownTests.postman_collection.json -e test-cases/spark_emulator_tests.postman_environment.json"
   },
   "dependencies": {
     "base-64": "^0.1.0",
@@ -23,6 +23,8 @@
   },
   "keywords": [
     "ciscospark",
+    "webex teams",
+    "webex",
     "emulator"
   ],
   "author": "Stève Sfartz (Cisco DevNet) <stsfartz@cisco.com>",
