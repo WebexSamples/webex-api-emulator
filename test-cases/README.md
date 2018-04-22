@@ -1,4 +1,4 @@
-# spark emulator test
+# Webex API emulator test
 This directory includes tests that attempt to validate that the spark emulator's behavior matches the behavior of the actual Webex API platform.
 
 At the time of this writing there are only test cases to validate responses to the /messages API when markdown is provided as input, as these test cases were developed while the markdown functionality was added.  It is hoped that as other contributions are made to add additional functionality to the emulator, that new test cases will be added as well.
