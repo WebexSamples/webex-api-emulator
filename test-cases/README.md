@@ -77,6 +77,7 @@ When properly configured almost all test will pass with the following exceptions
 * The test that exercises a mention using the <@personEmail:[email]|[name]> syntax fails.  As of this writing performing functions such as adding users to spaces via email, or mentioning users via email is not supported in the emulator.   It is expected that four out of the seven test will fail.
 
 When running the tests from the command line successful output will be:
+```
 ┌─────────────────────────┬──────────┬──────────┐
 │                         │ executed │   failed │
 ├─────────────────────────┼──────────┼──────────┤
@@ -90,6 +91,7 @@ When running the tests from the command line successful output will be:
 ├─────────────────────────┼──────────┼──────────┤
 │              assertions │       85 │        7 │
 ├─────────────────────────┴──────────┴──────────┤
+```
 
 
 
