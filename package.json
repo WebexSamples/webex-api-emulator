@@ -15,6 +15,7 @@
     "express": "^4.15.3",
     "express-interceptor": "^1.2.0",
     "request": "^2.81.0",
+    "showdown": "^1.8.6",
     "uuid": "^3.1.0"
   },
   "repository": {
