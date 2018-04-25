@@ -6,8 +6,6 @@
 // Middleware to correlate bot responses to bot-test input
 
 const debug = require("debug")("emulator:botTest");
-const sendError = require('../utils').sendError;
-const sendSuccess = require('../utils').sendSuccess;
 var interceptor = require('express-interceptor');
 
 let botInterceptor = interceptor(function(req, res){
@@ -26,7 +24,7 @@ let botInterceptor = interceptor(function(req, res){
       }
     }
   };
-})
+});
 
 
 module.exports = botInterceptor;
