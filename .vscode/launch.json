@@ -7,7 +7,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "Launch Emulator",
             "protocol": "inspector",
             "program": "${workspaceFolder}/server.js",
             "windows": {
@@ -15,6 +15,20 @@
             },
             "env": {
                 "DEBUG": "emulator*"
+            }
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Bot Test Mode",
+            "protocol": "inspector",
+            "program": "${workspaceFolder}/server.js",
+            "windows": {
+                "program": "${workspaceRoot}\\server.js"
+            },
+            "env": {
+                "DEBUG": "emulator*",
+                "BOT_UNDER_TEST": "bot@sparkbot.io"
             }
         }
     ]
