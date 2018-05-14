@@ -1,3 +1,6 @@
 node_modules/
 .env*
 test-cases/spark_emulator_tests.postman_environment.json
+.DS_Store
+bot-test/.DS_Store
+resources/.DS_Store
