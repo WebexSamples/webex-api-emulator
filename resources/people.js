@@ -26,17 +26,26 @@ router.get("/", function (req, res) {
 
   // Check email filter
   const email = req.query.email;
+  const id = req.query.id;
   if (email) {
     db.people.findWithEmail(actor, email, function (err, person) {
       if (err) {
         debug(`did not find any user with email: ${email}`);
         return sendSuccess(res, 200, { items: [] });
       }
-
       return sendSuccess(res, 200, { items: [person] });
     });
     return;
-  };
+  } else if (id) {
+    db.people.findWithId(actor, id, function (err, person) {
+      if (err) {
+        debug(`did not find any user with email: ${email}`);
+        return sendSuccess(res, 200, { items: [] });
+      }
+      return sendSuccess(res, 200, { items: [person] });
+    });
+    return;    
+  }
 
   //
   sendError(res, 400, "Email, displayName, or id list should be specified.");

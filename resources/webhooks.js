@@ -71,6 +71,76 @@ router.post("/", function (req, res) {
   });
 });
 
+// Update a webhook
+router.put("/:id", function (req, res) {
+  const db = req.app.locals.datastore;
+  const actor = res.locals.person;
+
+  // Check Media type
+  const media = req.get("Content-Type");
+  if (!media) {
+    debug("no Content-Type specified");
+    return sendError(res, 415, "Content type 'text/plain' not supported");
+  }
+  if (!(media.match(/^application\/json/i))) {
+    debug(`bad 'Content-Type' specified: '${media}'`);
+    return sendError(res, 415, `Content type '${media}' not supported`);
+  }
+
+  // Check incoming payload
+  const incoming = req.body;
+  if (!incoming) {
+    return sendError(res, 400);
+  }
+  const name = incoming.name;
+  if (!name || (typeof name != "string")) {
+    debug("name cannot be empty");
+    return sendError(res, 400, "name cannot be empty");
+  } 
+  const targetUrl = incoming.targetUrl;
+  if (!targetUrl || (typeof targetUrl != "string")) {
+    debug("targetUrl cannot be null");
+    return sendError(res, 400, "targetUrl cannot be null");
+  }
+
+  // Delete the existing webhook with this ID.
+  const webhookId = req.params.id;
+  db.webhooks.delete(actor, webhookId, function (err) {
+    if (err) {
+      switch (err.code) {
+        case "WEBHOOK_NOT_FOUND":
+          debug("Cannot find webhook to delete");
+          return sendError(res, 400, "Invalid webhookId for Delete Webhook request.");
+        case "NOT_OWNER_OF_WEBHOOK":
+          debug("Cannot delete webhook not owned by user");
+          return sendError(res, 400, "Failed to delete webhook.  You are not the owner of it.");
+        default:
+          debug("[EMULATOR] Unexpected error");
+          return sendError(res, 500, "[EMULATOR] Unexpected error");
+      }
+    } else {
+      // Default values
+      const resource = incoming.resource ? incoming.resource : "all";
+      const event = incoming.event ? incoming.event : "all";
+      const filter = incoming.filter ? incoming.filter : null;
+      const secret = incoming.secret ? incoming.secret : null;
+
+      // Create webhook
+      db.webhooks.create(actor, name, resource, event, targetUrl, filter, secret, function (err, webhook) {
+        if (err) {
+          debug("unexpected error: " + err.message);
+          sendError(res, 500, "[EMULATOR] cannot create webhook, unexpected error");
+          return;
+        }
+
+        // Return payload
+        // Note that Cisco Spark returns 200 OK and not a 201 CREATED here
+        return sendSuccess(res, 200, webhook);
+      });
+    }
+  });
+});
+
 
 // List webhooks
 router.get("/", function (req, res) {
